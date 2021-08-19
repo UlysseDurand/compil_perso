@@ -1,0 +1,1 @@
+python3 ~/git/compil_perso/data/compile.py ~/git/compil_perso/data/maths.lgi $1 latex $2 $3 $4 $5

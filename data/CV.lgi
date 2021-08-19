@@ -1,0 +1,89 @@
+<lgi>
+<header>
+    <aliases>
+1'(^# (.*)$)' -> '\section{%2}'
+2'(>>{(.*?)})' -> '\begin{flushright}\begin{tabular}{rl} %2 \end{tabular}\end{flushright}'
+    </aliases>
+    <commoncode>
+
+import json
+import sys
+
+data = json.loads(open("infos.json").read())
+
+args = sys.argv[1:]
+
+def age(s):
+    return 2021-int(s.split("/")[-1])
+
+    </commoncode>
+</header>
+<block lang="latex" fileout="document.tex">
+    <code>
+def afficheentete():
+    res = []
+    for key,value in data["header"].items():
+        for key2,value2 in value.items():
+            res.append(key2+"!a! : "+value2)
+    return "\\\\".join(res)
+
+def langjson(e):
+    if type(e) is dict:
+        for key,value in e.items():
+            if key in args:
+                return value
+        return "ERREUR"
+    else:
+        return e
+
+
+def afficheelem(e,s):
+    if (s=="readings"):
+|en|        return langjson(e["title"])+", by "+langjson(e["author"])+", first published in "+langjson(e["year"])
+|fr|        return langjson(e["title"])+", de "+langjson(e["author"])+", publié en "+langjson(e["year"])
+    elif (s=="contests"):
+|en|        return langjson(e["content"])+" in "+e["year"]
+|fr|        return langjson(e["content"])+" en "+e["year"]
+    elif (s=="projects"):
+        return "\\href{"+e["link"]+"}{"+e["name"]+"} ("+e["date"]+") : "+langjson(e["desc"])
+    elif (s=="study"):
+|en|        return langjson(e["content"])+" at "+e["place"]+" in "+e["year"]
+|fr|        return langjson(e["content"])+" à "+e["place"]+" en "+e["year"]
+    else:
+        return langjson(e)
+
+def affichelist(s):
+    body = data["body"]
+    for key,value in body.items():
+        if (key == s):
+            res = ["\\begin{itemize}"]
+            for e in value:
+                onajoute = afficheelem(e,s)
+                res.append("\\item "+onajoute)
+            res.append("\\end{itemize}")
+            return "\n".join(res)
+
+    </code>
+    <beforemdx>
+\documentclass{article}  
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{fontawesome}
+\usepackage[margin=3cm]{geometry}
+\hypersetup {
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\textheight=700pt
+\begin{document}
+    </beforemdx>
+    <aftermdx>
+\end{document}
+    </aftermdx>
+</block>
+</lgi>

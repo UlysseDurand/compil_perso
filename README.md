@@ -35,11 +35,61 @@ Here is an example of how to use this personnal compiler :
 Filetree :
 ```
 +-- README.md
-+-- compilecustom
-+-- custom.lgi
-+-- document.mdx
++-- CV.mdx
 +-- data :
-|   + main.py
-|   + std.lgi
+|   +-- compile.py
+|   +-- CV.lgi
+|   +-- maths.lgi
 ```
-[//]: # (TODO : FAIRE UN VRAI EXEMPLE)
+
+then, run ```python3 data/compile.py data/CV.lgi CV.mdx latex en```
+
+and a *document.tex* file will be generated.
+
+## Showtime
+Here is an example of what it can do :
+with *maths.lgi* and the following mdx file :
+```
+# THEORIE GENERALE
+
+## DETERMINANT DANS UNE BASE
+
+### Notion de forme p-lineaire sur E.
+
+L'application $\varphi:E^p \rightarrow \mathbb{K}$
+ est {\it p-lineaire} si chacune des applications partielles
+ est lineaire.
+
+### Forme alternée, antisymétrique.
+
+On suppose que $\varphi$ est une forme p-linéaire sur E.
+
+---
+#### Définitions
+
+$\varphi$ est !balternée! si $\varphi$ s’annule sur tout système de p vecteurs contenant au moins
+deux vecteurs égaux. On dit qu’elle est !bantisymétrique! si, à chaque fois que le système S'
+est déduit du système S par permutation de deux vecteurs, on a : $\varphi(S')=-\varphi(S)$.
+
+#### Propriétés
+
+~~~
+#### $\varphi$ alternée $\implies \varphi$ antisymétrique. Réciproque vraie si car $\mathbb{K}\neq 2$
+
+#### $\varphi$ antisymétrique $\iff \forall \sigma \in S_p$, $\forall (x_1,\hdots,x_p) 
+\in E^p, \varphi(x_{\sigma(1)},\hdots,x_{\sigma(p)})=\epsilon (\sigma).\varphi(x_1,\hdots,x_p)$.
+
+#### $\varphi$ alternée $\iff \forall (x_1,\hdots,x_p)\in E^p, ((x_1,\hdots,x_p)$ 
+lié $\implies \varphi (x_1,\hdots,x_p) = 0)$.
+~~~
+---
+
+### !t!
+Soit E de dimension n, et B une base de E. Il existe une unique forme n-
+linéaire alternée $\varphi$ sur E valant 1 sur la base B. Par déﬁnition, $\varphi$ = det B . On a de plus la
+formule :
+!equ!\forall x \in E, det_B(x_1,\hdots,x_n)=\sum_{\sigma \in \mathcal{S}} 
+\epsilon (\sigma).\varphi_{\sigma(1)}(x_1)\hdots \varphi_{\sigma(n)}(x_n).!equ!
+où $(\varphi_1,\hdots,\varphi_n)$ est la pase duale de $(e_1,\hdots,e_n)$.
+```
+it produces the .tex file of this pdf : [https://github.com/ulyssedurand/compil_perso/blob/master/example/maths-doc.pdf].
