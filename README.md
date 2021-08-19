@@ -47,7 +47,7 @@ then, run ```python3 data/compile.py data/CV.lgi CV.mdx latex en```
 and a *document.tex* file will be generated.
 
 ## Showtime
-Here is an example of what it can do :
+Here is an example of what it can do, 
 with *maths.lgi* and the following mdx file :
 ```
 # THEORIE GENERALE
@@ -92,4 +92,4 @@ formule :
 \epsilon (\sigma).\varphi_{\sigma(1)}(x_1)\hdots \varphi_{\sigma(n)}(x_n).!equ!
 où $(\varphi_1,\hdots,\varphi_n)$ est la pase duale de $(e_1,\hdots,e_n)$.
 ```
-it produces the .tex file of this pdf : [https://github.com/ulyssedurand/compil_perso/blob/master/example/maths-doc.pdf].
+it produces the .tex file of this pdf : https://github.com/ulyssedurand/compil_perso/blob/master/example/maths-doc.pdf.
