@@ -16,21 +16,7 @@ You need to have Python3 installed.
 ```
 ./compilecustom [your .lgi file] [your .mdx file] [your output language]
 ```
-
-### A friendly configuration
-You can use your PATH environment variable, so you can compile your own langage anywhere.
-
-And why not making the following file
-
-*mdxtotex* :
-```
-./compilecustom custom.lgi $1 latex 
-```
-
-So in any folder you can run ```mdxtotex [a .mdx file]```, and it will compile your mdx file in latex according to your own custom language definition.
-
-## Example
-Here is an example of how to use this personnal compiler :
+### Example
 
 Filetree :
 ```
@@ -46,7 +32,19 @@ then, run ```python3 data/compile.py data/CV.lgi CV.mdx latex en```
 
 and a *document.tex* file will be generated.
 
-## Showtime
+### A friendly configuration
+You can use your PATH environment variable, so you can compile your own langage anywhere.
+
+And why not making the following file
+
+*mdxtotex* :
+```
+./compilecustom custom.lgi $1 latex 
+```
+
+So in any folder you can run ```mdxtotex [a .mdx file]```, and it will compile your mdx file in latex according to your own custom language definition.
+
+## An example for the show
 Here is an example of what it can do, 
 with *maths.lgi* and the following mdx file :
 ```
