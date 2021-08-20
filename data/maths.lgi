@@ -1,6 +1,12 @@
 <lgi>
     <header>
-        <aliases>
+        <commoncode>
+import json
+data = json.loads(open("infos.json").read())
+        </commoncode>
+    </header>
+<block lang="latex" fileout="maths-doc.tex">
+    <aliases>
 3'^# (.*?)!n!' -> '\section{%1}!n!'
 3'^## (.*?)!n!' -> '\subsection{%1}!n!'
 3'^### (.*?)!n!' -> '\subsubsection{%1}!n!'
@@ -11,13 +17,7 @@
 2'!i(.*?)!' -> '{\it %1}'
 0'!t!' -> '\textbf{Théorème :}'
 2'!equ!(.*?)!equ!' -> '\begin{equation}%1\end{equation}'
-        </aliases>
-        <commoncode>
-import json
-data = json.loads(open("infos.json").read())
-        </commoncode>
-    </header>
-<block lang="latex" fileout="maths-doc.tex">
+    </aliases>
     <code>
 for key,value in data.items():
     print("\\newcommand{\\le"+key+"}{"+value+"}")

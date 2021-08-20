@@ -76,9 +76,9 @@ lgistring = open(lgifile).read()
 root = ET.parse(lgifile).getroot()
 
 header = chercharbre(root,"header",[])
-aliases = chercharbre(header,"aliases",[]).text
 commoncode = chercharbre(header,"commoncode",[]).text
 block = chercharbre(root,"block",[("lang",lang)])
+aliases = chercharbre(block,"aliases",[]).text
 fileout = block.attrib["fileout"]
 code = chercharbre(block,"code",[]).text
 beforemdx = chercharbre(block,"beforemdx",[]).text

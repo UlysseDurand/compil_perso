@@ -11,6 +11,7 @@ You need to have Python3 installed.
 
 ## How to use it
 * Express in the *custom.lgi* file how you want to compile your custom language according to the wiki. Note that in this file you can specify the way to compile toward multiple output languages (for example, LaTeX and HTML).
+To make the *custom.lgi* file, make sure to follow the [documentation](https://github.com/UlysseDurand/compil_perso/blob/main/doc.md)
 * Write your *document.mdx* file in your custom language.
 * just run the following command :
 ```
@@ -21,6 +22,7 @@ You need to have Python3 installed.
 Filetree :
 ```
 +-- README.md
++-- doc.md
 +-- CV.mdx
 +-- data :
 |   +-- compile.py

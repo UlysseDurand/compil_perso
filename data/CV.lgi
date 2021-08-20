@@ -1,9 +1,5 @@
 <lgi>
 <header>
-    <aliases>
-1'(^# (.*)$)' -> '\section{%2}'
-2'(>>{(.*?)})' -> '\begin{flushright}\begin{tabular}{rl} %2 \end{tabular}\end{flushright}'
-    </aliases>
     <commoncode>
 
 import json
@@ -19,6 +15,10 @@ def age(s):
     </commoncode>
 </header>
 <block lang="latex" fileout="document.tex">
+    <aliases>
+1'(^# (.*)$)' -> '\section{%2}'
+2'(>>{(.*?)})' -> '\begin{flushright}\begin{tabular}{rl} %2 \end{tabular}\end{flushright}'
+    </aliases>
     <code>
 def afficheentete():
     res = []

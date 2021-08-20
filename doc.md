@@ -1,11 +1,13 @@
-# Command syntax
+# Documentation
+
+## Command syntax
 Here is how to compile :
 ```
 python3 [path to compile.py] [path to lgi file] [path to mdx file] [output language] [option1] [option2] ...
 ```
 option1, option2, ... are optional.
 
-# The options
+## The options
 option1, option2, ... make the option list.
 You can start any line of your mdx or lgi file by |option| and the line will read by the program only if option is in the option list.
 
@@ -20,7 +22,7 @@ with only fr as option, then the program will read
 ```
 (Why not using it for optional indications after an exercice, or for an optional non family friendly contents within your text)
 
-# .lgi file format
+## .lgi file format
 
 It has a XML structure following the following XML Schema (xsd) :
 ```xsd
@@ -29,7 +31,6 @@ It has a XML structure following the following XML Schema (xsd) :
         <xs:complexType>
             <xs:element name="header">
                 <xs:complexType>
-                    <xs:element name="aliases" type="string"<!--aliases code--> />
                     <xs:element name="commoncode" type="string"<!--python code--> />
                 </xs:complexType]>
             </xs:element>
@@ -37,6 +38,7 @@ It has a XML structure following the following XML Schema (xsd) :
                 <xs:complexType>
                     <xs:attribute name="lang"/>
                     <xs:attribute name="fileout"/>
+                    <xs:element name="aliases" type="string"<!--aliases code--> />
                     <xs:element name="code" type="string"<!--python code--> />
                     <xs:element name="beforemdx" type="string" />
                     <xs:element name="aftermdx" type="string" />
@@ -47,24 +49,24 @@ It has a XML structure following the following XML Schema (xsd) :
 </xs:schema>
 ```
 
-# Compilation
+## Compilation
 
 The program executes the following tasks :
 * executes commoncode from header
 * takes the block with lang corresponding to the language argument in the command
 * execute the block's code
 * prints content of *beforemdx* from the block
-* prints the compiled content of your mdx file according to aliases from header
+* prints the compiled content of your mdx file according to aliases from the block
 * prints content of *aftermdx* from the block
 
-## content of mdx file compiled
+### content of mdx file compiled
 
 First, it prints the string returned by the python code between %.
 With this you could, for example, within the commoncode, fetch and parse a json file, so in your mdx file you can have ```%data["title"]%```, which will print what is whithin the title key from the data dict. (Why not making HTML requests to an API or print the temperature).
 
 Then, it changes the grammar of the mdx file according to aliases, here is how it works :
 
-## aliases code
+### aliases code
 
 Let's use an example to illustrate (from maths.lgi).
 ```
@@ -84,22 +86,21 @@ so you can imagine that with this aliases code, the following text1 will compile
 
 text1
 ```
-# Definitions
+# The fauna
 ---
-#### A shovel is a stick with an iron part
-#### An axe is a stick with an iron part
-#### A sword is a stick with an iron part
+#### An ulmite is a species we can find in the street of Paris, quite often at the pub, pay him a beer and he will talk to you, then, you can even bring him home and feed him.
+
+#### A computer scientist is a species living in the deep undergrounds, you can find him by following the ethernet cables which are active after midnight. Don't be too talkative with him or he might be scared.
 ---
 ```
-<!-- Therefore, A shovel, an axe and a sword are the same. -->
+<!-- The ulmite can even sleep with you after a pool party at his home. -->
 
 text2
 ```
 \section{Definitions}
 \begin{itemize}
-\item A shovel is a stick with an iron part
-\item An axe shovel is a stick with an iron part
-\item A sword is a stick with an iron part
+\item An ulmite is a species we can find in the street of Paris, quite often at the pub, pay him a beer and he will talk to you, then, you can even bring him home and feed him.
+\item A computer scientist is a species living in the deep undergrounds, you can find him by following the ethernet cables which are active after midnight. Don't be too talkative with him or he might be scared.
 \end{itemize}
 ```
 And oh my, text1 is a lot clearer than text2 !
