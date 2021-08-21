@@ -2,7 +2,10 @@
     <header>
         <commoncode>
 import json
-data = json.loads(open("infos.json").read())
+infoexists = os.path.isfile("infos.json")
+data = {}
+if infoexists:
+    data = json.loads(open("infos.json").read())
         </commoncode>
     </header>
 <block lang="latex" fileout="maths-doc.tex">
@@ -19,8 +22,9 @@ data = json.loads(open("infos.json").read())
 2'!equ!(.*?)!equ!' -> '\begin{equation}%1\end{equation}'
     </aliases>
     <code>
-for key,value in data.items():
-    print("\\newcommand{\\le"+key+"}{"+value+"}")
+if infoexists:
+    for key,value in data.items():
+        print("\\newcommand{\\le"+key+"}{"+value+"}")
     </code>
     <beforemdx>
 \documentclass[a4paper,12pt]{article}

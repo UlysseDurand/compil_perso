@@ -55,7 +55,6 @@ def aliased(al,s):
             n,e1,e2 = reg.groups()
             e1 = re.sub("!n!","\n",e1)
             e2 = re.sub("!n!","\n",e2)
-            print((e1,""))
             n = int(n)
             fl = 0
             if n==1:
