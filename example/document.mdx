@@ -1,41 +1,65 @@
-# THEORIE GENERALE
+|fr|# THEORIE GENERALE
+|en|# GENERAL THEORY
 
-## DETERMINANT DANS UNE BASE
+|fr|## DETERMINANT DANS UNE BASE
+|en|## DETERMINANT IN SOME BASIS
 
-### Notion de forme p-lineaire sur E.
+|fr|### Notion de forme p-lineaire sur E.
+|en|### p-linear form on E.
 
-L'application $\varphi:E^p \rightarrow \mathbb{K}$
- est {\it p-lineaire} si chacune des applications partielles
- est lineaire.
+|fr|L'application $\varphi:E^p \rightarrow \mathbb{K}$ est {\it p-lineaire}
+|en|The $\varphi:E^p \rightarrow \mathbb{K}$ application is said to be {\it p-linear}
+|fr|si chacune des applications partielles est lineaire.
+|en|if and only if each of its partial functions is linear.
 
-### Forme alternée, antisymétrique.
+|fr|### Forme alternée, antisymétrique.
+|en|### Alternated, antisymetric form
 
-On suppose que $\varphi$ est une forme p-linéaire sur E.
-
+|fr|On suppose que $\varphi$ est une forme p-linéaire sur E.
+|en|We will suppose that $\varphi$ is a p-linear form on E.
 ---
-#### Définitions
+|fr|#### Définitions
+|en|#### Definitions
 
-$\varphi$ est !balternée! si $\varphi$ s’annule sur tout système de p vecteurs contenant au moins
-deux vecteurs égaux. On dit qu’elle est !bantisymétrique! si, à chaque fois que le système S'
-est déduit du système S par permutation de deux vecteurs, on a : $\varphi(S')=-\varphi(S)$.
+|fr|$\varphi$ est !balternée! si $\varphi$ s’annule sur tout système de p vecteurs contenant au moins
+|fr|deux vecteurs égaux. On dit qu’elle est !bantisymétrique! si, à chaque fois que le système S'
+|fr|est déduit du système S par permutation de deux vecteurs, on a : $\varphi(S')=-\varphi(S)$.
 
-#### Propriétés
+|en|$\varphi$ is !balternated! if $\varphi$ is null on any system of p vectors which contains at least
+|en|two equal vectors. It is said to be !bantisymetric! if, when the S' system is the S system but
+|en|with two permutated vectors we have : $\varphi(S')=-\varphi(S)$.
+
+|fr|#### Propriétés
+|en|#### Properties
 
 ~~~
-#### $\varphi$ alternée $\implies \varphi$ antisymétrique. Réciproque vraie si car $\mathbb{K}\neq 2$
+|fr|#### $\varphi$ alternée $\implies \varphi$ antisymétrique. Réciproque vraie si car $\mathbb{K}\neq 2$
+|en|#### $\varphi$ alternated $\implies \varphi$ antisymetric. true reciprocal if car $\mathbb{K}\neq 2$
 
-#### $\varphi$ antisymétrique $\iff \forall \sigma \in S_p$, $\forall (x_1,\hdots,x_p) 
+#### $\varphi$ 
+|fr|antisymétrique
+|en|antisymetric
+$\iff \forall \sigma \in S_p$, $\forall (x_1,\hdots,x_p) 
 \in E^p, \varphi(x_{\sigma(1)},\hdots,x_{\sigma(p)})=\epsilon (\sigma).\varphi(x_1,\hdots,x_p)$.
 
-#### $\varphi$ alternée $\iff \forall (x_1,\hdots,x_p)\in E^p, ((x_1,\hdots,x_p)$ 
-lié $\implies \varphi (x_1,\hdots,x_p) = 0)$.
+#### $\varphi$ 
+|fr|alternée
+|en|alternated
+$\iff \forall (x_1,\hdots,x_p)\in E^p, ((x_1,\hdots,x_p)$
+|fr|liée
+|en|linearly dependant
+$\implies \varphi (x_1,\hdots,x_p) = 0)$.
 ~~~
 ---
 
 ### !t!
-Soit E de dimension n, et B une base de E. Il existe une unique forme n-
-linéaire alternée $\varphi$ sur E valant 1 sur la base B. Par déﬁnition, $\varphi$ = det B . On a de plus la
-formule :
+|fr|Soit E de dimension n, et B une base de E. Il existe une unique forme n-
+|fr|linéaire alternée $\varphi$ sur E valant 1 sur la base B. Par déﬁnition, $\varphi$ = det B . On a de plus la
+|fr|formule :
+|en|let E be a vector space of dimension n, and B be a basis of E. There exists a unique n-linear alternated form
+|en|$\varphi$ on E which evaluates to 1 on the B basis. By definition, $\varphi$ = det B.
+|en|Moreover, we deduce the following formula.
 !equ!\forall x \in E, det_B(x_1,\hdots,x_n)=\sum_{\sigma \in \mathcal{S}} 
 \epsilon (\sigma).\varphi_{\sigma(1)}(x_1)\hdots \varphi_{\sigma(n)}(x_n).!equ!
-où $(\varphi_1,\hdots,\varphi_n)$ est la pase duale de $(e_1,\hdots,e_n)$.
+|fr|où $(\varphi_1,\hdots,\varphi_n)$ est la base duale de $(e_1,\hdots,e_n)$.
+|en|where $(\varphi_1,\hdots,\varphi_n)$ is the dual basis of $(e_1,\hdots,e_n)$.

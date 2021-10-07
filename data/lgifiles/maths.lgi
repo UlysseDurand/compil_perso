@@ -18,7 +18,8 @@ if infoexists:
 3'^#### (.*?)!n!' -> '\item %1!n!'
 2'!b(.*?)!' -> '\textbf{ %1 }'
 2'!i(.*?)!' -> '{\it %1}'
-0'!t!' -> '\textbf{Théorème :}'
+|fr|0'!t!' -> '\textbf{Théorème :}'
+|en|0'!t!' -> '\textbf{Theorem :}'
 2'    ' -> '\indent '
 2'!equ!(.*?)!equ!' -> '\begin{equation}%1\end{equation}'
     </aliases>
