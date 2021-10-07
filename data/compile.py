@@ -98,4 +98,4 @@ tmp+=stringtocodeprint(lesoptions(aftermdx))
 
 open("tmp.py","w+").write(tmp)
 os.system("python3 tmp.py "+" ".join(args)+" > "+fileout)
-# os.system("rm tmp.py")
+os.system("rm tmp.py")

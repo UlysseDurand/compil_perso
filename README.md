@@ -23,28 +23,27 @@ Filetree :
 ```
 +-- README.md
 +-- doc.md
-+-- CV.mdx
++-- bin :
+|   +-- compile
++-- example :
+|   |document.mdx
 +-- data :
 |   +-- compile.py
-|   +-- CV.lgi
-|   +-- maths.lgi
+|   +-- lgifiles :
+|   |   +-- CV.lgi
+|   |   +-- maths.lgi
 ```
 
-then, run ```python3 data/compile.py data/CV.lgi CV.mdx latex en```
+then, run ```python3 data/compile.py data/lgifiles/maths.lgi example/document.mdx latex en```
 
-and a *document.tex* file will be generated.
+(or ```./bin/compile maths example/document.mdx latex en```)
+
+and the *maths-doc.tex* file will be generated.
 
 ### A friendly configuration
-You can use your PATH environment variable, so you can compile your own langage anywhere.
+You can add bin to your PATH environment variable, so you can compile your own languages anywhere.
 
-And why not making the following file
-
-*mdxtotex* :
-```
-./compilecustom custom.lgi $1 latex 
-```
-
-So in any folder you can run ```mdxtotex [a .mdx file]```, and it will compile your mdx file in latex according to your own custom language definition.
+And add your own lgi files to the data/lgifiles folder.
 
 ## An example for the show
 Here is an example of what it can do, 

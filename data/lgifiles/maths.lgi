@@ -19,6 +19,7 @@ if infoexists:
 2'!b(.*?)!' -> '\textbf{ %1 }'
 2'!i(.*?)!' -> '{\it %1}'
 0'!t!' -> '\textbf{Théorème :}'
+2'    ' -> '\indent '
 2'!equ!(.*?)!equ!' -> '\begin{equation}%1\end{equation}'
     </aliases>
     <code>
@@ -34,16 +35,14 @@ else:
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage[margin=1cm]{geometry}
+\usepackage[margin=1.5cm]{geometry}
 
 
+\everymath{\displaystyle}
 \title{\letitle}
 \author{\leauthor}
 \date{}
 \begin{document}
-
-\maketitle
-
     </beforemdx>
     <aftermdx>
 

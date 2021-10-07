@@ -1,0 +1,3 @@
+#compile [lgifile name] [mdx file] [output language] [::args] 
+python3 ~/git/compil_perso/data/compile.py ~/git/compil_perso/data/lgifiles/$1.lgi $2 $3
+echo "DONE"
