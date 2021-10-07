@@ -70,9 +70,9 @@ Then, it changes the grammar of the mdx file according to aliases, here is how i
 
 Let's use an example to illustrate (from maths.lgi).
 ```
-3'^# (.*?)!n!' -> '\section{%1}!n!'
-3'^---(.*)!n!---' -> '\begin{itemize}%1!n!\end{itemize}'
-3'^#### (.*?)!n!' -> '\item %1!n!'
+3'^# (.*?)~n~' -> '\section{%1}~n~'
+3'^---(.*)~n~---' -> '\begin{itemize}%1~n~\end{itemize}'
+3'^#### (.*?)~n~' -> '\item %1~n~'
 ```
 
 Each line in an aliases code is an alias, it takes the form of an integer (0,1,2 or 3) followed by a regex expression within single quotes ```'``` and then there is an arrow``` -> ```with a string within single quotes.
@@ -85,8 +85,9 @@ the flags combinations corresponding to the integers are the following :
 - 3 : multiline + dotall
 It subtitutes your regex pattern with the right string, and replaces the %i by the content of the group number i from your regex pattern.
 
-```!n!``` is a line break.
-```!a!``` is a &.
+```~n~``` is a line break.
+```~a~``` is a &.
+```~p~``` is a %.
 
 so you can imagine that with this aliases code, the following text1 will compile into text2 :
 

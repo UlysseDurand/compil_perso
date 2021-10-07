@@ -25,7 +25,7 @@ def lesoptions(s):
     for e in args:
         s = re.sub("^\|"+e+"\|","",s,flags=lflgs)
     s = re.sub(r"^\|[^\|]*\|.*?\n","",s,flags=lflgs)
-    s = re.sub("!a!","&",s)
+    s = re.sub("~a~","&",s)
     return s
 
 def lescape(s):
@@ -53,8 +53,8 @@ def aliased(al,s):
         reg = re.search("(.)'(.*)' -> '(.*)'",line)
         if reg: 
             n,e1,e2 = reg.groups()
-            e1 = re.sub("!n!","\n",e1)
-            e2 = re.sub("!n!","\n",e2)
+            e1 = re.sub("~n~","\n",e1)
+            e2 = re.sub("~n~","\n",e2)
             n = int(n)
             fl = 0
             if n==1:
@@ -69,6 +69,9 @@ def aliased(al,s):
                 e2 = e2.replace("%"+str(i),trucs[i])
             s = re.sub(e1,e2,s,flags=fl)
     return s
+
+def pourcent(s):
+    return re.sub("~p~","%",s)
 
 ##### PARSING THE LGI FILE
 lgistring = open(lgifile).read()
@@ -89,7 +92,7 @@ tmp+=lesoptions(code)
 
 tmp+=stringtocodeprint(lesoptions(beforemdx))
 
-tmp+=parse(aliased( lesoptions(aliases), lesoptions(open(mdxfile).read()) ))
+tmp+=pourcent(parse(aliased( lesoptions(aliases), lesoptions(open(mdxfile).read()) )))
 
 tmp+=stringtocodeprint(lesoptions(aftermdx))
 
