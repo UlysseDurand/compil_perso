@@ -16,7 +16,7 @@ This is usefull for compiling in multiple languages, for example, if you have th
 |fr| # Bonjour à tous
 |en| # Hello everybody
 ```
-with only fr as option, then the program will read 
+with only fr as option, the program will read 
 ```
 # Bonjour à tous
 ```
@@ -62,7 +62,7 @@ The program executes the following tasks :
 ### content of mdx file compiled
 
 First, it prints the string returned by the python code between %.
-With this you could, for example, within the commoncode, fetch and parse a json file, so in your mdx file you can have ```%data["title"]%```, which will print what is whithin the title key from the data dict. (Why not making HTML requests to an API or print the temperature).
+With this you could, for example, within the commoncode, fetch and parse a json file, so in your mdx file you can have ```%data["title"]%```, which will print what is whithin the title key from the data dict. (Why not making HTML requests to an API or read the temperature through a sensor).
 
 Then, it changes the grammar of the mdx file according to aliases, here is how it works :
 
@@ -75,32 +75,37 @@ Let's use an example to illustrate (from maths.lgi).
 3'^#### (.*?)!n!' -> '\item %1!n!'
 ```
 
-Each line in an aliases code is an alias, it takes the form of a number (0,1,2 or 3) followed by a regex expression within single quotes ```'``` and then there is an arrow``` -> ```with a string within single quotes.
+Each line in an aliases code is an alias, it takes the form of an integer (0,1,2 or 3) followed by a regex expression within single quotes ```'``` and then there is an arrow``` -> ```with a string within single quotes.
 
 The program uses the regex substitute function, taking a pattern, a subtitute, and optional flags as arguments.
+the flags combinations corresponding to the integers are the following :
+- 0 : none
+- 1 : multiline
+- 2 : dotall
+- 3 : multiline + dotall
 It subtitutes your regex pattern with the right string, and replaces the %i by the content of the group number i from your regex pattern.
 
 ```!n!``` is a line break.
+```!a!``` is a &.
 
 so you can imagine that with this aliases code, the following text1 will compile into text2 :
 
 text1
 ```
-# The fauna
+# Few facts
 ---
-#### An ulmite is a species we can find in the street of Paris, quite often at the pub, pay him a beer and he will talk to you, then, you can even bring him home and feed him.
+#### I wanted to put a joke in here but I had no imagination
 
-#### A computer scientist is a species living in the deep undergrounds, you can find him by following the ethernet cables which are active after midnight. Don't be too talkative with him or he might be scared.
+#### If you do have some imagination contact me at uldr@pm.me
 ---
 ```
-<!-- The ulmite can even sleep with you after a pool party at his home. -->
 
 text2
 ```
-\section{Definitions}
+\section{Few facts}
 \begin{itemize}
-\item An ulmite is a species we can find in the street of Paris, quite often at the pub, pay him a beer and he will talk to you, then, you can even bring him home and feed him.
-\item A computer scientist is a species living in the deep undergrounds, you can find him by following the ethernet cables which are active after midnight. Don't be too talkative with him or he might be scared.
+\item I wanted to put a joke in here but I had no imagination
+\item If you do have some imagination contact me at uldr@pm.me
 \end{itemize}
 ```
-And oh my, text1 is a lot clearer than text2 !
+And text1 is a lot clearer than text2 !
