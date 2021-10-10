@@ -10,12 +10,12 @@ if infoexists:
     </header>
 <block lang="latex" fileout="maths-doc.tex">
     <aliases>
-3'^# (.*?)!n!' -> '\section{%1}!n!'
-3'^## (.*?)!n!' -> '\subsection{%1}!n!'
-3'^### (.*?)!n!' -> '\subsubsection{%1}!n!'
-3'^~~~(.*)!n!~~~' -> '\begin{enumerate}%1!n!\end{enumerate}'
-3'^---(.*)!n!---' -> '\begin{itemize}%1!n!\end{itemize}'
-3'^#### (.*?)!n!' -> '\item %1!n!'
+3'^# (.*?)~n~' -> '\section{%1}~n~'
+3'^## (.*?)~n~' -> '\subsection{%1}~n~'
+3'^### (.*?)~n~' -> '\subsubsection{%1}~n~'
+3'^~~~(.*)~n~~~~' -> '\begin{enumerate}%1~n~\end{enumerate}'
+3'^---(.*)~n~---' -> '\begin{itemize}%1~n~\end{itemize}'
+3'^#### (.*?)~n~' -> '\item %1~n~'
 2'!b(.*?)!' -> '\textbf{ %1 }'
 2'!i(.*?)!' -> '{\it %1}'
 |fr|0'!t!' -> '\textbf{Théorème :}'
