@@ -5,35 +5,8 @@ import xml.etree.ElementTree as ET
 
 lgifile = sys.argv[1]
 mdxfile = sys.argv[2]
-
-args = sys.argv[3:]
-
-root = ET.parse(lgifile).getroot()
-leslangs = []
-outfiles = []
-
-for e in root:
-    if e.tag=="block" and ("lang" in e.attrib):
-        leslangs.append(e.attrib["lang"])
-    if e.tag=="block" and ("fileout" in e.attrib):
-        outfiles.append(e.attrib["fileout"])
-
-arguments = {}
-for i in range(len(args)):
-    if args[i][0] == '-' and i<len(args)-1:
-        arguments[args[i][1:]] = args[i+1]
-
-lang = leslangs[0]
-outfile = outfiles[0]
-
-if "l" in arguments:
-    lang = arguments["l"]
-
-if "o" in arguments:
-    outfile = arguments["o"]
-
-if "lgi" in arguments:
-    lgifile = arguments["lgi"]
+lang = sys.argv[3]
+args = sys.argv[4:]
 
 tmp = ""
 lflgs = re.MULTILINE|re.DOTALL
@@ -102,11 +75,13 @@ def pourcent(s):
 
 ##### PARSING THE LGI FILE
 lgistring = open(lgifile).read()
+root = ET.parse(lgifile).getroot()
 
 header = chercharbre(root,"header",[])
 commoncode = chercharbre(header,"commoncode",[]).text
 block = chercharbre(root,"block",[("lang",lang)])
 aliases = chercharbre(block,"aliases",[]).text
+fileout = block.attrib["fileout"]
 code = chercharbre(block,"code",[]).text
 beforemdx = chercharbre(block,"beforemdx",[]).text
 aftermdx = chercharbre(block,"aftermdx",[]).text
@@ -125,5 +100,5 @@ tmp+=stringtocodeprint(lesoptions(aftermdx))
 ##### COMPILING EVERYTHING
 
 open("tmp.py","w+").write(tmp)
-os.system("python3 tmp.py "+" ".join(args)+" > "+outfile)
+os.system("python3 tmp.py "+" ".join(args)+" > "+fileout)
 os.system("rm tmp.py")
