@@ -59,10 +59,10 @@ The program executes the following tasks :
 * prints the compiled content of your mdx file according to aliases from the block
 * prints content of *aftermdx* from the block
 
-### content of mdx file compiled
+### content of beforemdx, aftermdx and the mdx file compiled
 
-First, it prints the string returned by the python code between %.
-With this you could, for example, within the commoncode, fetch and parse a json file, so in your mdx file you can have ```%data["title"]%```, which will print what is whithin the title key from the data dict. (Why not making HTML requests to an API or read the temperature through a sensor).
+It prints the string while executing the python code between '%'s. So ```The calculus gives %print(3**7,end='')%, that's huge !``` will print ```The calculus gives 2187, that's huge !```.
+With this you could, for example, within the commoncode, fetch and parse a json file, so in your mdx file you can have ```%print(data["title"])%```, which will print what is whithin the title key from the data dict. (Why not making HTML requests to an API or read the temperature through a sensor).
 
 Then, it changes the grammar of the mdx file according to aliases, here is how it works :
 

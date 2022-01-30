@@ -71,7 +71,7 @@ def parse(s):
         if i%2==0:
             res+=stringtocodeprint(splitted[i])
         else:
-            res+="\nprint("+splitted[i]+",end=\'\')\n"
+            res+=splitted[i]
     return res
 
 def aliased(al,s):
@@ -115,11 +115,11 @@ tmp+=lesoptions(commoncode)
 
 tmp+=lesoptions(code)
 
-tmp+=stringtocodeprint(lesoptions(beforemdx))
+tmp+=pourcent(parse(lesoptions(beforemdx)))
 
 tmp+=pourcent(parse(aliased( lesoptions(aliases), lesoptions(open(mdxfile).read()) )))
 
-tmp+=stringtocodeprint(lesoptions(aftermdx))
+tmp+=pourcent(parse(lesoptions(aftermdx)))
 
 
 ##### COMPILING EVERYTHING

@@ -26,7 +26,7 @@ Filetree :
 +-- bin :
 |   +-- compile
 +-- example :
-|   |document.mdx
+|   |   +-- document.mdx
 +-- data :
 |   +-- compile.py
 |   +-- lgifiles :
@@ -114,5 +114,10 @@ $\implies \varphi (x_1,\hdots,x_p) = 0)$.
 \epsilon (\sigma).\varphi_{\sigma(1)}(x_1)\hdots \varphi_{\sigma(n)}(x_n).!equ!
 |fr|où $(\varphi_1,\hdots,\varphi_n)$ est la base duale de $(e_1,\hdots,e_n)$.
 |en|where $(\varphi_1,\hdots,\varphi_n)$ is the dual basis of $(e_1,\hdots,e_n)$.
+
+!equ!e^{\sqrt(5)} = %
+import math
+print(math.exp(math.sqrt(5)),end='')
+%!equ!
 ```
 with the "fr" option, it produces the .tex file of this pdf : https://github.com/ulyssedurand/compil_perso/blob/master/example/maths-doc.pdf.
